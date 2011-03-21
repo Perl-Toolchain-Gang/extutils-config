@@ -1,4 +1,5 @@
 Revision history for ExtUtils-Config
 
 {{$NEXT}}
+         Renamed Module::Build::Config to ExtUtils::Config, reset $VERSION count
     -
