@@ -59,7 +59,7 @@ __END__
 
 # ABSTRACT: A wrapper for perl's configuration
 
-=head1 SYNOPSYS
+=head1 SYNOPSIS
 
  my $config = ExtUtils::Config->new();
  $config->set('installsitelib', "$ENV{HOME}/lib");
