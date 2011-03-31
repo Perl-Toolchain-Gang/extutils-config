@@ -1,6 +1,8 @@
 Revision history for ExtUtils-Config
 
 {{$NEXT}}
+
+0.002     2011-03-31 17:44:52 Europe/Amsterdam
           Made hashref the only argument to contructor, instead of hash containing one hashref.
 
 0.001     2011-03-27 13:42:21 Europe/Amsterdam
