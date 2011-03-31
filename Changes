@@ -1,7 +1,7 @@
 Revision history for ExtUtils-Config
 
 {{$NEXT}}
+          Made hashref the only argument to contructor, instead of hash containing one hashref.
 
 0.001     2011-03-27 13:42:21 Europe/Amsterdam
-         Renamed Module::Build::Config to ExtUtils::Config, reset $VERSION count
-    -
+          Renamed Module::Build::Config to ExtUtils::Config, reset $VERSION count

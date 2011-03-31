@@ -5,10 +5,10 @@ use warnings;
 use Config;
 
 sub new {
-	my ($pack, %args) = @_;
+	my ($pack, $args) = @_;
 	return bless {
 		stack => {},
-		values => $args{values} || {},
+		values => $args || {},
 	}, $pack;
 }
 
@@ -68,9 +68,9 @@ __END__
 
 ExtUtils::Config is an abstraction around the %Config hash.
 
-=method new
+=method new(\%config)
 
-Create a new ExtUtils::Config object.
+Create a new ExtUtils::Config object. The values in C<\%config> are used to initialize the object.
 
 =method get($key)
 
