@@ -44,7 +44,7 @@ sub pop {
 sub values_set {
 	my $self = shift;
 	return undef unless ref($self);
-	return $self->{values};
+	return { %{$self->{values}} };
 }
 
 sub all_config {

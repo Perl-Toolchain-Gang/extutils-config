@@ -1,6 +1,7 @@
 Revision history for ExtUtils-Config
 
 {{$NEXT}}
+          Let values_set return a copy over the overrides
 
 0.002     2011-03-31 17:44:52 Europe/Amsterdam
           Made hashref the only argument to contructor, instead of hash containing one hashref.

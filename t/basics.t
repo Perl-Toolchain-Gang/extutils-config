@@ -39,6 +39,10 @@ is($config->get('more'), 'more2', "'more' is now 'more2");
 $config->pop('more');
 is($config->get('more'), 'more1', "'more' is now 'more1");
 
+my $set = $config->values_set;
+$set->{more} = 'more3';
+is($config->get('more'), 'more1', "more is still 'more1'");
+
 my $config2 = ExtUtils::Config->new({ more => 'more3' });
 
 is_deeply($config2->values_set, { more => 'more3' }, "\$config2 has 'more' set to 'more3'");
