@@ -23,6 +23,11 @@ sub set {
 	$self->{values}{$key} = $val;
 }
 
+sub exists {
+	my ($self, $key) = @_;
+	return (ref $self && exists $self->{values}{$key}) || exists $Config{$key};
+}
+
 sub push {
 	my ($self, $key, $val) = @_;
 	push @{$self->{stack}{$key}}, $self->{values}{$key} if exists $self->{values}{$key};
@@ -75,6 +80,10 @@ Create a new ExtUtils::Config object. The values in C<\%config> are used to init
 =method get($key)
 
 Get the value of C<$key>. If not overriden it will return the value in %Config.
+
+=method exists($key)
+
+Tests for the existence of $key in either 
 
 =method set($key, $value)
 

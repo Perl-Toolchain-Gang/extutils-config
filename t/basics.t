@@ -12,9 +12,13 @@ is(ExtUtils::Config->get('config_args'), $Config{config_args}, "'config_args' is
 
 my $config = ExtUtils::Config->new;
 
-is($config->get('config_args'), $Config{config_args}, "'config_args' is the same for \$config");
+ok($config->exists('config_args'), "'config_args' is set");
+is($config->get('config_args'), $Config{config_args}, "'config_args' is the same for \$Config");
 
-ok(!defined $config->get('nonexistent'), "'nonexistent' is nonexistent");
+ok(!ExtUtils::Config->exists('nonexistent'), "'nonexistent' is nonexistent");
+ok(!$config->exists('nonexistent'), "'nonexistent' is still nonexistent");
+
+ok(!defined $config->get('nonexistent'), "'nonexistent' is not defined");
 
 is_deeply($config->all_config, \%Config, 'all_config is \%Config');
 
