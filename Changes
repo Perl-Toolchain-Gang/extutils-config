@@ -2,6 +2,9 @@ Revision history for ExtUtils-Config
 
 {{$NEXT}}
 
+0.004     2011-10-13 15:28:46 Europe/Amsterdam
+          Fix tests to work on Windows
+
 0.003     2011-09-15 12:33:25 Europe/Amsterdam
           Add an exists method
           Let values_set return a copy over the overrides
