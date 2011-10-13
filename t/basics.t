@@ -12,8 +12,8 @@ is(ExtUtils::Config->get('config_args'), $Config{config_args}, "'config_args' is
 
 my $config = ExtUtils::Config->new;
 
-ok($config->exists('config_args'), "'config_args' is set");
-is($config->get('config_args'), $Config{config_args}, "'config_args' is the same for \$Config");
+ok($config->exists('path_sep'), "'path_sep' is set");
+is($config->get('path_sep'), $Config{path_sep}, "'path_sep' is the same for \$Config");
 
 ok(!ExtUtils::Config->exists('nonexistent'), "'nonexistent' is nonexistent");
 ok(!$config->exists('nonexistent'), "'nonexistent' is still nonexistent");
