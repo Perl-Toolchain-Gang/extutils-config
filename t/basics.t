@@ -8,14 +8,11 @@ use Config;
 
 use ExtUtils::Config;
 
-is(ExtUtils::Config->get('config_args'), $Config{config_args}, "'config_args' is the same for ExtUtils::Config");
-
 my $config = ExtUtils::Config->new;
 
 ok($config->exists('path_sep'), "'path_sep' is set");
 is($config->get('path_sep'), $Config{path_sep}, "'path_sep' is the same for \$Config");
 
-ok(!ExtUtils::Config->exists('nonexistent'), "'nonexistent' is nonexistent");
 ok(!$config->exists('nonexistent'), "'nonexistent' is still nonexistent");
 
 ok(!defined $config->get('nonexistent'), "'nonexistent' is not defined");
@@ -30,22 +27,15 @@ is_deeply($config->all_config, \%Config, 'all_config is \%Config');
 	is_deeply($config->values_set, { more => 'nomore' }, 'values_set is { more => \'nomore\'}');
 
 	is_deeply($config->all_config, \%myconfig, 'allconfig is myconfig');
-}
 
-$config->pop('more');
+	$config->clear('more');
+}
 
 is_deeply($config->all_config, \%Config, 'all_config is \%Config again');
 
-$config->push('more', 'more1');
-$config->push('more', 'more2');
-
-is($config->get('more'), 'more2', "'more' is now 'more2");
-$config->pop('more');
-is($config->get('more'), 'more1', "'more' is now 'more1");
-
 my $set = $config->values_set;
 $set->{more} = 'more3';
-is($config->get('more'), 'more1', "more is still 'more1'");
+is($config->get('more'), $Config{more}, "more is still '$Config{more}'");
 
 my $config2 = ExtUtils::Config->new({ more => 'more3' });
 
