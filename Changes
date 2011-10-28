@@ -1,6 +1,8 @@
 Revision history for ExtUtils-Config
 
 {{$NEXT}}
+
+0.005     2011-10-29 00:34:21 Europe/Amsterdam
           Sanatize ExtUtils::Config, in particular:
             * Get rid of class methods
             * Get rid of push/pop methods
