@@ -1,6 +1,7 @@
 Revision history for ExtUtils-Config
 
 {{$NEXT}}
+          Added a clone method
 
 0.005     2011-10-29 00:34:21 Europe/Amsterdam
           Sanatize ExtUtils::Config, in particular:

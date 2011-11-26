@@ -11,6 +11,11 @@ sub new {
 	}, $pack;
 }
 
+sub clone {
+	my $self = shift;
+	return __PACKAGE__->new($self->{values});
+}
+
 sub get {
 	my ($self, $key) = @_;
 	return exists $self->{values}{$key} ? $self->{values}{$key} : $Config{$key};
@@ -66,7 +71,7 @@ Get the value of C<$key>. If not overriden it will return the value in %Config.
 
 =method exists($key)
 
-Tests for the existence of $key in either .
+Tests for the existence of $key.
 
 =method set($key, $value)
 
@@ -83,3 +88,8 @@ Get a hashref of all overridden values.
 =method all_config
 
 Get a hashref of the complete configuration, including overrides.
+
+=method clone
+
+Clone the current configuration object.
+

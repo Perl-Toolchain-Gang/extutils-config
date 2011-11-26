@@ -19,12 +19,15 @@ ok(!defined $config->get('nonexistent'), "'nonexistent' is not defined");
 
 is_deeply($config->all_config, \%Config, 'all_config is \%Config');
 
+my $clone = $config->clone;
+
 {
 	my %myconfig = %Config;
 	$config->set('more', 'nomore');
 	$myconfig{more} = 'nomore';
 
 	is_deeply($config->values_set, { more => 'nomore' }, 'values_set is { more => \'nomore\'}');
+	is_deeply($clone->values_set, { }, 'values_set not is { more => \'nomore\'} in clone');
 
 	is_deeply($config->all_config, \%myconfig, 'allconfig is myconfig');
 
