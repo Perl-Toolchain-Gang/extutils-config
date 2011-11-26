@@ -1,6 +1,8 @@
 Revision history for ExtUtils-Config
 
 {{$NEXT}}
+
+0.006     2011-11-26 01:09:07 Europe/Amsterdam
           Added a clone method
 
 0.005     2011-10-29 00:34:21 Europe/Amsterdam
