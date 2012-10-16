@@ -26,6 +26,7 @@ sub set {
 	my ($self, $key, $val) = @_;
 	$self->{values}{$key} = $val;
 	delete $self->{serialized};
+	return;
 }
 
 sub clear {
@@ -90,15 +91,15 @@ Set/override the value of C<$key> to C<$value>.
 
 Reset the value of C<$key> to its original value.
 
-=method values_set
+=method values_set()
 
 Get a hashref of all overridden values.
 
-=method all_config
+=method all_config()
 
 Get a hashref of the complete configuration, including overrides.
 
-=method clone
+=method clone()
 
 Clone the current configuration object.
 
