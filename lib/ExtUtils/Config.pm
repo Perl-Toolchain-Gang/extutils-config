@@ -3,6 +3,7 @@ package ExtUtils::Config;
 use strict;
 use warnings;
 use Config;
+use Data::Dumper ();
 
 sub new {
 	my ($pack, $args) = @_;
@@ -24,11 +25,14 @@ sub get {
 sub set {
 	my ($self, $key, $val) = @_;
 	$self->{values}{$key} = $val;
+	delete $self->{serialized};
 }
 
 sub clear {
 	my ($self, $key) = @_;
-	return delete $self->{values}{$key};
+	delete $self->{values}{$key};
+	delete $self->{serialized};
+	return;
 }
 
 sub exists {
@@ -44,6 +48,11 @@ sub values_set {
 sub all_config {
 	my $self = shift;
 	return { %Config, %{ $self->{values}} };
+}
+
+sub serialize {
+	my $self = shift;
+	return $self->{serialized} ||= Data::Dumper->new([$self->values_set])->Terse(1)->Sortkeys(1)->Dump;
 }
 
 1;
@@ -92,4 +101,8 @@ Get a hashref of the complete configuration, including overrides.
 =method clone
 
 Clone the current configuration object.
+
+=method serialize()
+
+This method serializes the object to some kind of string.
 
