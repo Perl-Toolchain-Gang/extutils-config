@@ -1,6 +1,8 @@
 Revision history for ExtUtils-Config
 
 {{$NEXT}}
+
+0.007     2012-10-17 22:12:15 Europe/Amsterdam
           Added serialize method
 
 0.006     2011-11-26 01:09:07 Europe/Amsterdam
