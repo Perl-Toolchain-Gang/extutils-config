@@ -77,7 +77,7 @@ Create a new ExtUtils::Config object. The values in C<\%config> are used to init
 
 =method get($key)
 
-Get the value of C<$key>. If not overriden it will return the value in %Config.
+Get the value of C<$key>. If not overridden it will return the value in %Config.
 
 =method exists($key)
 
