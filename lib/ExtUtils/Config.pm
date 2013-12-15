@@ -12,28 +12,9 @@ sub new {
 	}, $pack;
 }
 
-sub clone {
-	my $self = shift;
-	return __PACKAGE__->new($self->{values});
-}
-
 sub get {
 	my ($self, $key) = @_;
 	return exists $self->{values}{$key} ? $self->{values}{$key} : $Config{$key};
-}
-
-sub set {
-	my ($self, $key, $val) = @_;
-	$self->{values}{$key} = $val;
-	delete $self->{serialized};
-	return;
-}
-
-sub clear {
-	my ($self, $key) = @_;
-	delete $self->{values}{$key};
-	delete $self->{serialized};
-	return;
 }
 
 sub exists {
@@ -65,7 +46,7 @@ __END__
 =head1 SYNOPSIS
 
  my $config = ExtUtils::Config->new();
- $config->set('installsitelib', "$ENV{HOME}/lib");
+ $config->get('installsitelib');
 
 =head1 DESCRIPTION
 
@@ -83,14 +64,6 @@ Get the value of C<$key>. If not overridden it will return the value in %Config.
 
 Tests for the existence of $key.
 
-=method set($key, $value)
-
-Set/override the value of C<$key> to C<$value>.
-
-=method clear($key)
-
-Reset the value of C<$key> to its original value.
-
 =method values_set()
 
 Get a hashref of all overridden values.
@@ -98,10 +71,6 @@ Get a hashref of all overridden values.
 =method all_config()
 
 Get a hashref of the complete configuration, including overrides.
-
-=method clone()
-
-Clone the current configuration object.
 
 =method serialize()
 

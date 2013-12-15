@@ -1,6 +1,7 @@
 Revision history for ExtUtils-Config
 
 {{$NEXT}}
+          Remove set, clear, clone methods
 
 0.007     2012-10-17 22:12:15 Europe/Amsterdam
           Added serialize method
