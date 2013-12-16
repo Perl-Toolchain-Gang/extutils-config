@@ -39,8 +39,6 @@ sub serialize {
 
 1;
 
-__END__
-
 # ABSTRACT: A wrapper for perl's configuration
 
 =head1 SYNOPSIS
@@ -50,7 +48,7 @@ __END__
 
 =head1 DESCRIPTION
 
-ExtUtils::Config is an abstraction around the %Config hash.
+ExtUtils::Config is an abstraction around the %Config hash. By itself it is not a particularly interesting module by any measure, however it ties together a family of modern toolchain modules.
 
 =method new(\%config)
 
