@@ -1,6 +1,8 @@
 Revision history for ExtUtils-Config
 
 {{$NEXT}}
+
+0.008     2014-06-25 11:37:13-04:00 America/Nassau
           Remove set, clear, clone methods
 
 0.007     2012-10-17 22:12:15 Europe/Amsterdam
