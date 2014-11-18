@@ -3,7 +3,6 @@ package ExtUtils::Config;
 use strict;
 use warnings;
 use Config;
-use Data::Dumper ();
 
 sub new {
 	my ($pack, $args) = @_;
@@ -34,6 +33,7 @@ sub all_config {
 
 sub serialize {
 	my $self = shift;
+	require Data::Dumper;
 	return $self->{serialized} ||= Data::Dumper->new([$self->values_set])->Terse(1)->Sortkeys(1)->Dump;
 }
 
