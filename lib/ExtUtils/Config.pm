@@ -37,6 +37,20 @@ sub serialize {
 	return $self->{serialized} ||= Data::Dumper->new([$self->values_set])->Terse(1)->Sortkeys(1)->Dump;
 }
 
+sub but {
+	my ($self, $args) = @_;
+	my %new = %{ $self->{values} };
+	for my $key (keys %$args) {
+		if (defined $args->{$key}) {
+			$new{$key} = $args->{$key}
+		}
+		else {
+			delete $new{$key};
+		}
+	}
+	return bless { values => \%new }, ref $self;
+}
+
 1;
 
 # ABSTRACT: A wrapper for perl's configuration
@@ -62,6 +76,10 @@ Get the value of C<$key>. If not overridden it will return the value in %Config.
 
 Tests for the existence of $key.
 
+=method but(\%keys)
+
+This creates a new C<ExtUtils::Config> object based on the current one, but with the values in %keys replacing the current values. Any undefined value means it will be removed from the overriden set.
+
 =method values_set()
 
 Get a hashref of all overridden values.
@@ -73,4 +91,3 @@ Get a hashref of the complete configuration, including overrides.
 =method serialize()
 
 This method serializes the object to some kind of string.
-

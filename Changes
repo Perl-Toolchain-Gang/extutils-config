@@ -1,6 +1,7 @@
 Revision history for ExtUtils-Config
 
 {{$NEXT}}
+          - Add a but method
 
 0.008     2014-06-25 11:37:13-04:00 America/Nassau
           Remove set, clear, clone methods
