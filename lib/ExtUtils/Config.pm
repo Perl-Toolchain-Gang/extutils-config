@@ -34,7 +34,7 @@ sub all_config {
 sub serialize {
 	my $self = shift;
 	require Data::Dumper;
-	return $self->{serialized} ||= Data::Dumper->new([$self->values_set])->Terse(1)->Sortkeys(1)->Dump;
+	return $self->{serialized} ||= Data::Dumper->new($self->{values})->Terse(1)->Sortkeys(1)->Dump;
 }
 
 sub but {
@@ -90,4 +90,4 @@ Get a hashref of the complete configuration, including overrides.
 
 =method serialize()
 
-This method serializes the object to some kind of string.
+This method serializes the object to some kind of string. This can be useful for various caching purposes.
