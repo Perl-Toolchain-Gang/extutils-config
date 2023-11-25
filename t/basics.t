@@ -35,4 +35,17 @@ my $set = $config->values_set;
 $set->{more} = 'more3';
 is($config->get('more'), $Config{more}, "more is still '$Config{more}'");
 
+use ExtUtils::Config::MakeMaker;
+
+my $config4 = ExtUtils::Config::MakeMaker->new({ OPTIMIZE => 'some_value' });
+%myconfig = (%Config, optimize => 'some_value');
+
+is_deeply($config4->values_set, { optimize => 'some_value' }, 'values_set is { optimize => \'some_value\' }');
+is_deeply($config4->all_config, \%myconfig, 'allconfig is myconfig');
+
+my $config5 = $config4->materialize;
+
+is_deeply($config5->values_set, { optimize => 'some_value' }, 'values_set is { optimize => \'some_value\' }');
+is_deeply($config5->all_config, \%myconfig, 'allconfig is myconfig');
+
 done_testing;
