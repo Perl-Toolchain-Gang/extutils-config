@@ -91,3 +91,23 @@ Get a hashref of the complete configuration, including overrides.
 =method serialize()
 
 This method serializes the object to some kind of string. This can be useful for various caching purposes.
+
+=head1 SEE ALSO
+
+=over 4
+
+=item * L<Module::Build::Tiny>
+
+=item * L<ExtUtils::InstallPaths>
+
+=item * L<CPAN::Static::Install>
+
+=item * L<ExtUtils::HasCompiler>
+
+=item * L<ExtUtils::Builder>
+
+=item * L<CPAN::Requirements::Dynamic>
+
+=item * L<Devel::FindPerl>
+
+=back
