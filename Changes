@@ -1,6 +1,7 @@
 Revision history for ExtUtils-Config
 
 {{$NEXT}}
+          Fix regression in serialize method
 
 0.009     2024-04-25 12:22:53+02:00 Europe/Brussels
           - Add a but method

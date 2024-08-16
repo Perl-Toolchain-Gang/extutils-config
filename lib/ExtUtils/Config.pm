@@ -34,7 +34,7 @@ sub all_config {
 sub serialize {
 	my $self = shift;
 	require Data::Dumper;
-	return $self->{serialized} ||= Data::Dumper->new($self->{values})->Terse(1)->Sortkeys(1)->Dump;
+	return $self->{serialized} ||= Data::Dumper->new([ $self->{values} ])->Terse(1)->Sortkeys(1)->Dump;
 }
 
 sub but {
